@@ -5,10 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckedTextView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.wear.widget.BoxInsetLayout;
+
 
 import java.util.ArrayList;
 
@@ -40,7 +39,7 @@ public class CustomAdapterProduce extends RecyclerView.Adapter<CustomAdapterProd
 
     public static class RecyclerViewHolder extends RecyclerView.ViewHolder
     {
-        RelativeLayout rv;
+        BoxInsetLayout rv;
         CheckedTextView simpleItem;
 
         public RecyclerViewHolder(View view) {

@@ -6,6 +6,8 @@ import android.support.wearable.activity.WearableActivity;
 import android.util.Log;
 import android.view.View;
 
+import android.view.ViewGroup;
+
 import androidx.wear.widget.WearableLinearLayoutManager;
 import androidx.wear.widget.WearableRecyclerView;
 
@@ -51,5 +53,6 @@ public class ViewAllListsActivity extends WearableActivity {
             }
         }));
     }
+
 
 }
