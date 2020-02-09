@@ -19,7 +19,8 @@ public interface ApiService {
     Single<Response<ArrayList<ShoppingListMeta>>> getShoppingLists(@Header("x-api-key")Integer id);
 
     @GET("lists/{id}")
-    Single<Response<ShoppingList>> getShoppingList(@Path("id") int listId);
+    Single<Response<ShoppingList>> getShoppingList(@Path("id") int listId,
+                                                   @Header("x-api-key")Integer id);
 
     @PUT("lists/{id}/{pid}?checked={checked}")
     Single<Response<String>> updateProduct(@Path("id") int listId,
