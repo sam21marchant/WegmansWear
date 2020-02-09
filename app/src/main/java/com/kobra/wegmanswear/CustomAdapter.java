@@ -80,7 +80,7 @@ class ViewItem {
     public ViewItem(String text, ShoppingListMeta shoppingListMeta) {
         this.text = text;
         this.shoppingLists = shoppingListMeta;
-        this.isList = shoppingLists == null;
+        this.isList = shoppingLists != null;
     }
 
     public ViewItem(String text){

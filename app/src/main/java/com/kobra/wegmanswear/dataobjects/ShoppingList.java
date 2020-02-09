@@ -3,9 +3,10 @@ package com.kobra.wegmanswear.dataobjects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ShoppingList {
+public class ShoppingList implements Serializable {
 
     @SerializedName("name")
     @Expose

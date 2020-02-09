@@ -11,15 +11,27 @@ import androidx.wear.widget.WearableRecyclerView;
 
 import com.kobra.wegmanswear.dataobjects.ShoppingList;
 import com.kobra.wegmanswear.dataobjects.ShoppingListMeta;
+import com.kobra.wegmanswear.network.ApiManager;
+import com.kobra.wegmanswear.network.ApiService;
 
 import java.util.ArrayList;
+
+import io.reactivex.Single;
+import io.reactivex.SingleObserver;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Response;
 
 public class ViewAllListsActivity extends WearableActivity {
 
     private ArrayList<ShoppingListMeta> shoppingLists;
+    private ApiService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.apiService = ApiManager.getInstance().getService();
+
         super.onCreate(savedInstanceState);
         Bundle bundle = getIntent().getExtras();
         shoppingLists = (ArrayList<ShoppingListMeta>) bundle.getSerializable("shoppingLists");
@@ -48,13 +60,47 @@ public class ViewAllListsActivity extends WearableActivity {
                //switchActivity to the list at listPosition
                 ViewItem item = lists.get(listPosition);
                 if(item.isList()){
-                    Log.i("OnItemClicked", "LIST BUTTON");
+                    Log.i("OnItemClicked", "LIST BUTTON " + item.getText());
+
+                    int listId = item.getShoppingLists().getListId();
+                    int userId = item.getShoppingLists().getUserId();
+
+                    Single<Response<ShoppingList>> responseObservable = apiService.getShoppingList(listId,userId);
+                    responseObservable.subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(new SingleObserver<Response<ShoppingList>>() {
+                                @Override
+                                public void onSubscribe(Disposable d) {
+                                    Log.i("ViewAllListsActivity", "Subscribed");
+                                }
+
+                                @Override
+                                public void onSuccess(Response<ShoppingList> arrayListResponse) {
+                                    Log.i("ViewAllListsActivity", "Success");
+                                    openListsActivity(arrayListResponse.body());
+                                }
+
+                                @Override
+                                public void onError(Throwable e) {
+                                    Log.e("ViewAllListsActivity", "Could not get Shopping List");
+
+                                }
+                            });
                 }else{
-                    Log.i("OnItemClicked", "RIBBON");
+                    Log.i("OnItemClicked", "RIBBON " + item.getText());
                 }
 //                startActivity(new Intent(ViewAllListsActivity.this, ListActivity.class));
             }
         }));
+    }
+
+
+    private void openListsActivity(ShoppingList shoppingList){
+        Intent allListsActivityIntent = new Intent(this, ListActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("products", shoppingLists);
+        allListsActivityIntent.putExtras(bundle);
+        startActivity(allListsActivityIntent);
     }
 
 }
