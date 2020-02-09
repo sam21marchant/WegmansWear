@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.util.Log;
+import android.view.View;
 
 import androidx.wear.widget.WearableLinearLayoutManager;
 import androidx.wear.widget.WearableRecyclerView;
@@ -29,9 +30,9 @@ public class ViewAllListsActivity extends WearableActivity {
         WearableRecyclerView rv = findViewById(R.id.listslist);
         rv.setEdgeItemsCenteringEnabled(true);
         //TODO: Get Lists in Arraylist
-        ArrayList<ViewItem> lists = new ArrayList<ViewItem>(); //possibly change string to custom class List
-        lists.add(new ViewItem("Family list"));
-        lists.add(new ViewItem("Work list"));
+        final ArrayList<ViewItem> lists = new ArrayList<ViewItem>(); //possibly change string to custom class List
+        lists.add(new ViewItem("Family list", true));
+        lists.add(new ViewItem("Work list", false));
         //
 
         //add lists to screen
@@ -40,7 +41,13 @@ public class ViewAllListsActivity extends WearableActivity {
             @Override
             public void onItemClicked(final Integer listPosition) {
                //switchActivity to the list at listPosition
-                startActivity(new Intent(ViewAllListsActivity.this, ListActivity.class));
+                ViewItem item = lists.get(listPosition);
+                if(item.isList()){
+                    Log.i("OnItemClicked", "LIST BUTTON");
+                }else{
+                    Log.i("OnItemClicked", "RIBBON");
+                }
+//                startActivity(new Intent(ViewAllListsActivity.this, ListActivity.class));
             }
         }));
     }

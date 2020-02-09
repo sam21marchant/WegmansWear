@@ -2,12 +2,12 @@ package com.kobra.wegmanswear;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.wear.widget.WearableRecyclerView;
 
 import java.util.ArrayList;
 
@@ -72,11 +72,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.RecyclerVi
 
 class ViewItem {
     private String text;
-    public ViewItem(String text) {
+    private boolean isList;
+
+    public ViewItem(String text, boolean isList) {
         this.text = text;
+        this.isList = isList;
     }
 
     public String getText() {
         return text;
     }
+
+    public boolean isList() {
+        return isList;
+    }
 }
+
