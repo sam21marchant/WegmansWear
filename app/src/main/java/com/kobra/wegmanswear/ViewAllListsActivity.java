@@ -44,10 +44,8 @@ public class ViewAllListsActivity extends WearableActivity {
         WearableRecyclerView rv = findViewById(R.id.listslist);
         rv.setEdgeItemsCenteringEnabled(true);
 
+
         final ArrayList<ViewItem> lists = new ArrayList<ViewItem>();
-//        lists.add(new ViewItem("Family list", true));
-//        lists.add(new ViewItem("Work list", false));
-        //
 
         lists.add(new ViewItem("Shopping Lists", null));
         for(ShoppingListMeta meta : shoppingLists){

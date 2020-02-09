@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="5dp"
-    android:paddingTop="5dp">
+    android:paddingTop="5dp"
+    android:background="@color/light_grey"
+    >
 
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,8 +16,9 @@
     android:padding="10dp"
     android:outlineSpotShadowColor="@color/orange"
     android:id="@+id/justafuckingtext"
-    android:background="@color/dark_grey"
-    android:textAppearance="@style/TextAppearance.Wearable.Medium"
+    android:textColor="@color/black"
+    android:textAppearance="@style/TextAppearance.Wearable.Small"
+
     style="@style/TextAppearance.WearDiag">
 </TextView>
 </RelativeLayout>

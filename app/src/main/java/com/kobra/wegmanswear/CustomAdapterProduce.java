@@ -75,7 +75,7 @@ public class CustomAdapterProduce extends RecyclerView.Adapter<RecyclerView.View
                 holder = new RecyclerViewHolder0(view);
                 break;
             case 2:
-                View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_view, parent, false);
+                View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_ribbon, parent, false);
                 holder = new RecyclerViewHolder2(view1);
                 break;
 

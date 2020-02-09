@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+    <style name="BigTheme" parent="Theme.Wearable">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_gravity">center</item>
+        <item name="android:colorAccent">#EF5231</item>
 
+    </style>
+
+    <style name="ForTheBoys" parent="Theme.Wearable">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:font">@style/TextAppearance.WearDiag.Title</item>
+    </style>
 
 </resources>
