@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Wegmans Wear</string>
-
+    <string name="main_activity_error">Could not load your shopping lists.</string>
 </resources>

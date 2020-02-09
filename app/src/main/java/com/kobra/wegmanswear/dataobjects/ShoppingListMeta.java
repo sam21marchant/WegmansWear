@@ -3,20 +3,26 @@ package com.kobra.wegmanswear.dataobjects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ShoppingListMeta {
+import java.io.Serializable;
+
+public class ShoppingListMeta implements Serializable {
 
     @SerializedName("list_id")
     @Expose
     private Integer listId;
+
     @SerializedName("user_id")
     @Expose
     private Integer userId;
+
     @SerializedName("store_id")
     @Expose
     private Integer storeId;
+
     @SerializedName("name")
     @Expose
     private String name;
+
     @SerializedName("description")
     @Expose
     private String description;

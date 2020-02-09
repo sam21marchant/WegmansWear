@@ -3,16 +3,27 @@ package com.kobra.wegmanswear;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
+import android.util.Log;
 
 import androidx.wear.widget.WearableLinearLayoutManager;
 import androidx.wear.widget.WearableRecyclerView;
 
+import com.kobra.wegmanswear.dataobjects.ShoppingList;
+import com.kobra.wegmanswear.dataobjects.ShoppingListMeta;
+
 import java.util.ArrayList;
 
 public class ViewAllListsActivity extends WearableActivity {
+
+    private ArrayList<ShoppingListMeta> shoppingLists;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle bundle = getIntent().getExtras();
+        shoppingLists = (ArrayList<ShoppingListMeta>) bundle.getSerializable("shoppingLists");
+        Log.i("ViewAllListsActivity", (new Integer(shoppingLists.size())).toString());
+
         setContentView(R.layout.activity_viewlists);
 
         WearableRecyclerView rv = findViewById(R.id.listslist);
