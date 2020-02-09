@@ -44,7 +44,14 @@ public class ListActivity extends WearableActivity {
         }
         else {
             items.add(new ViewItem_Produce("List: " + shoppingList.getName(), null));
+            String location = "";
+
             for (WegmansProduct product : shoppingList.getProducts()) {
+                if(!product.getLocation().equals(location)){
+                    location = product.getLocation();
+                    items.add(new ViewItem_Produce(location, null));
+                }
+
                 items.add(new ViewItem_Produce(product));
             }
         }
