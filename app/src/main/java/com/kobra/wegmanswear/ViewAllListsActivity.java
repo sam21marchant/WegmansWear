@@ -31,9 +31,14 @@ public class ViewAllListsActivity extends WearableActivity {
         rv.setEdgeItemsCenteringEnabled(true);
         //TODO: Get Lists in Arraylist
         final ArrayList<ViewItem> lists = new ArrayList<ViewItem>(); //possibly change string to custom class List
-        lists.add(new ViewItem("Family list", true));
-        lists.add(new ViewItem("Work list", false));
+//        lists.add(new ViewItem("Family list", true));
+//        lists.add(new ViewItem("Work list", false));
         //
+
+        lists.add(new ViewItem("Shopping Lists", null));
+        for(ShoppingListMeta meta : shoppingLists){
+            lists.add(new ViewItem(meta));
+        }
 
         //add lists to screen
         rv.setLayoutManager(new WearableLinearLayoutManager(this));
