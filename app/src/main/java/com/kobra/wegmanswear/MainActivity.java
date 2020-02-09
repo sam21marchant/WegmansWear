@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.kobra.wegmanswear.dataobjects.ShoppingListMeta;
@@ -56,9 +58,18 @@ public class MainActivity extends WearableActivity {
                     }
 
                     @Override
-                    public void onSuccess(Response<ArrayList<ShoppingListMeta>> arrayListResponse) {
+                    public void onSuccess(final Response<ArrayList<ShoppingListMeta>> arrayListResponse) {
                         Log.i("MainActivity", "Success");
-                        openAllListsActivity(arrayListResponse.body());
+                        Button startButton = ((Button) findViewById(R.id.startButton));
+                        startButton.setVisibility(View.VISIBLE);
+
+                        startButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openAllListsActivity(arrayListResponse.body());
+                            }
+                        });
+
                     }
 
                     @Override
@@ -77,7 +88,7 @@ public class MainActivity extends WearableActivity {
         bundle.putSerializable("shoppingLists", shoppingLists);
         allListsActivityIntent.putExtras(bundle);
         startActivity(allListsActivityIntent);
-        finish();
+
     }
 
 

@@ -7,23 +7,41 @@
     android:background="@color/orange"
     android:padding="@dimen/box_inset_layout_padding"
     tools:context=".MainActivity"
-    tools:deviceIds="wear">
+    tools:deviceIds="wear"
+    android:id="@+id/boxInsetLayout">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/inner_frame_layout_padding">
+        android:layout_width="204dp"
+        android:layout_height="204dp"
+        >
 
         <TextView
             android:id="@+id/title_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
+            android:layout_height="52dp"
             android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            android:text="@string/app_name"
+            android:textAppearance="@style/Widget.WearDiag.TextView.Title"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/orange"
+            android:textSize="30sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="130dp"
+            android:background="@color/black"
+            android:text="Let's Get Started"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
 </androidx.wear.widget.BoxInsetLayout>
 
