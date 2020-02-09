@@ -9,6 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kobra.wegmanswear.dataobjects.ShoppingListMeta;
+
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.RecyclerViewHolder> {
@@ -73,10 +75,24 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.RecyclerVi
 class ViewItem {
     private String text;
     private boolean isList;
+    private ShoppingListMeta shoppingLists;
 
-    public ViewItem(String text, boolean isList) {
+    public ViewItem(String text, ShoppingListMeta shoppingListMeta) {
         this.text = text;
-        this.isList = isList;
+        this.shoppingLists = shoppingListMeta;
+        this.isList = shoppingLists == null;
+    }
+
+    public ViewItem(String text){
+        this.text = text;
+        this.shoppingLists = null;
+        this.isList = false;
+    }
+
+    public ViewItem(ShoppingListMeta shoppingLists){
+        this.shoppingLists = shoppingLists;
+        this.text = shoppingLists.getName();
+        this.isList = true;
     }
 
     public String getText() {
@@ -85,6 +101,10 @@ class ViewItem {
 
     public boolean isList() {
         return isList;
+    }
+
+    public ShoppingListMeta getShoppingLists() {
+        return shoppingLists;
     }
 }
 
