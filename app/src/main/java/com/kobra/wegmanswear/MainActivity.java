@@ -44,10 +44,8 @@ public class MainActivity extends WearableActivity {
         // Enables Always-on
         setAmbientEnabled();
 
-        //TODO: Make request to get a user's shopping lists
-        //placeholder code, replace timer with waiting for connection then running
-
         //TODO: Get unique user id
+        //get data
         Single<Response<ArrayList<ShoppingListMeta>>> responseObservable = apiService.getShoppingLists(1);
         responseObservable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

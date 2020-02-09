@@ -43,8 +43,8 @@ public class ViewAllListsActivity extends WearableActivity {
 
         WearableRecyclerView rv = findViewById(R.id.listslist);
         rv.setEdgeItemsCenteringEnabled(true);
-        //TODO: Get Lists in Arraylist
-        final ArrayList<ViewItem> lists = new ArrayList<ViewItem>(); //possibly change string to custom class List
+
+        final ArrayList<ViewItem> lists = new ArrayList<ViewItem>();
 //        lists.add(new ViewItem("Family list", true));
 //        lists.add(new ViewItem("Work list", false));
         //
@@ -85,6 +85,7 @@ public class ViewAllListsActivity extends WearableActivity {
                                 @Override
                                 public void onError(Throwable e) {
                                     Log.e("ViewAllListsActivity", "Could not get Shopping List");
+                                    Log.e("ViewAllListsActivity", e.getMessage());
 
                                 }
                             });
@@ -100,7 +101,7 @@ public class ViewAllListsActivity extends WearableActivity {
     private void openListsActivity(ShoppingList shoppingList){
         Intent allListsActivityIntent = new Intent(this, ListActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable("products", shoppingLists);
+        bundle.putSerializable("products", shoppingList);
         allListsActivityIntent.putExtras(bundle);
         startActivity(allListsActivityIntent);
     }

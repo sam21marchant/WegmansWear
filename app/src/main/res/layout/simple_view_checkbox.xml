@@ -7,7 +7,7 @@
     android:paddingBottom="5dp"
     android:paddingTop="5dp">
 
-
+<!--DO NOT ADD ANY LESS OR MORE CHILDREN IT WILL BREAK -->
 <CheckedTextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"

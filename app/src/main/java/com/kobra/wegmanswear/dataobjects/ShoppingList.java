@@ -14,7 +14,7 @@ public class ShoppingList implements Serializable {
 
     @SerializedName("id")
     @Expose
-    private int id;
+    private Integer id;
 
     @SerializedName("data")
     @Expose

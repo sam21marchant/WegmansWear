@@ -18,16 +18,15 @@ public interface ApiService {
     @GET("endpoints/lists")
     Single<Response<ArrayList<ShoppingListMeta>>> getShoppingLists(@Header("x-api-key")Integer id);
 
-    @GET("lists/{id}")
+    @GET("endpoints/lists/{id}")
     Single<Response<ShoppingList>> getShoppingList(@Path("id") int listId,
                                                    @Header("x-api-key")Integer id);
 
-    @PUT("lists/{id}/{pid}?checked={checked}")
+    @PUT("endpoints/lists/{id}/{pid}?checked={checked}")
     Single<Response<String>> updateProduct(@Path("id") int listId,
                                                    @Path("pid") int productId,
                                                    @Path("checked") boolean checked);
 
-    @GET("hello")
-    Single<Response<String>> testHello();
+
 
 }

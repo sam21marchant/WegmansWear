@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.wear.widget.BoxInsetLayout;
 
 
+import com.kobra.wegmanswear.dataobjects.WegmansProduct;
+
 import java.util.ArrayList;
 
 public class CustomAdapterProduce extends RecyclerView.Adapter<CustomAdapterProduce.RecyclerViewHolder> {
@@ -72,11 +74,28 @@ public class CustomAdapterProduce extends RecyclerView.Adapter<CustomAdapterProd
 
 class ViewItem_Produce {
     private String text;
-    public ViewItem_Produce(String text) {
+    private WegmansProduct prod;
+
+    public ViewItem_Produce(String text, WegmansProduct pro) {
         this.text = text;
+        prod = pro;
+    }
+
+    public ViewItem_Produce(WegmansProduct pro) {
+        this.text = pro.getName();
+        prod = pro;
     }
 
     public String getText() {
         return text;
     }
+
+    public WegmansProduct getProd() {
+        return prod;
+    }
+
+    public void setProd(WegmansProduct prod) {
+        this.prod = prod;
+    }
+
 }

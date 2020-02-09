@@ -3,7 +3,9 @@ package com.kobra.wegmanswear.dataobjects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class WegmansProduct {
+import java.io.Serializable;
+
+public class WegmansProduct  implements Serializable {
 
     @SerializedName("entry_id")
     @Expose
