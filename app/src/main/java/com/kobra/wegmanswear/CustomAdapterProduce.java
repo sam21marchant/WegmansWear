@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckedTextView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -40,7 +41,7 @@ public class CustomAdapterProduce extends RecyclerView.Adapter<CustomAdapterProd
     public static class RecyclerViewHolder extends RecyclerView.ViewHolder
     {
         RelativeLayout rv;
-        TextView simpleItem;
+        CheckedTextView simpleItem;
 
         public RecyclerViewHolder(View view) {
             super(view);

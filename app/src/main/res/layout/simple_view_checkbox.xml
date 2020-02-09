@@ -7,16 +7,17 @@
     android:paddingBottom="5dp"
     android:paddingTop="5dp">
 
-<View android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/justafuckingtext_produce">
-<Checkbox
+
+<CheckedTextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:id="@+id/checkbox_produce"
+    android:id="@+id/justafuckingtext_produce"
+    android:checkMark="@drawable/checked"
+    android:checked="true"
     >
-</Checkbox>
-</View>
+</CheckedTextView>
 </RelativeLayout>
+
+<!--https://abhiandroid.com/ui/checkedtextview -->

@@ -19,7 +19,7 @@ public class ListActivity extends WearableActivity {
         rv.setEdgeItemsCenteringEnabled(true);
         //TODO: Get list
         //TODO: Find a way to get list ID passed over from ViewAllListsActivity to get this data
-        ArrayList<ViewItem_Produce> items = new ArrayList<ViewItem_Produce>(); //possibly change string to custom class List
+        ArrayList<ViewItem_Produce> items = new ArrayList<ViewItem_Produce>();
         items.add(new ViewItem_Produce("Apple"));
         items.add(new ViewItem_Produce("Bees"));
         //
@@ -29,7 +29,9 @@ public class ListActivity extends WearableActivity {
         rv.setAdapter(new CustomAdapterProduce(this, items, new CustomAdapterProduce.AdapterCallback() {
             @Override
             public void onItemClicked(final Integer listPosition) {
-                //delete item from list
+                //activate checkmark!
+
+                System.out.println("Check it!");
             }
         }));
 
